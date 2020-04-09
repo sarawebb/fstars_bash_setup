@@ -1,0 +1,57 @@
+if [ "$SLURM_JOB_RESERVATION" = "dwf" ]; then
+    export PATH=/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/astropy/3.1.2-python-3.6.4/bin:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/numpy/1.16.3-python-3.6.4/bin:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/python/3.6.4/bin:/jobfs/local/dwf/apps/skylake/software/core/anaconda3/5.1.0:/jobfs/local/dwf/apps/skylake/software/core/anaconda3/5.1.0/bin:/jobfs/local/dwf/apps/skylake/software/core/anaconda2/5.1.0:/jobfs/local/dwf/apps/skylake/software/core/anaconda2/5.1.0/bin:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/ds9/7.6/bin:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/eclipse/5.0.0/bin:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/astrometry.net/0.74/bin:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/hotpants/5.1.11/bin:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/sextractor/2.19.5/bin:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/swarp/2.38.0/bin:/jobfs/local/dwf/apps/skylake/software/core/idl/8.4/envi/bin:/jobfs/local/dwf/apps/skylake/software/core/idl/8.4/idl/bin:/jobfs/local/dwf/apps/skylake/software/core/git/2.18.0/bin:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/sqlite/3.21.0/bin:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/fftw/3.3.7/bin:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/openmpi/3.0.0/bin:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/openblas/0.2.20/bin:/jobfs/local/dwf/apps/skylake/software/core/gcccore/6.4.0/bin:/jobfs/local/dwf/apps/skylake/software/core/binutils/2.30/bin:$PATH
+
+    export LD_LIBRARY_PATH=/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/numpy/1.16.3-python-3.6.4/lib/python3.6/site-packages/numpy-1.16.3-py3.6-linux-x86_64.egg/numpy/core/lib:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/numpy/1.16.3-python-3.6.4/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/python/3.6.4/lib:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/mpi4py/3.0.0-python-2.7.14/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/ds9/7.6/lib:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/astrometry.net/0.74/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/sqlite/3.21.0/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/cfitsio/3.450/lib:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/scalapack/2.0.2-openblas-0.2.20/lib:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/fftw/3.3.7/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/openmpi/3.0.0/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/atlas/3.10.2-lapack-3.8.0/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/openblas/0.2.20/lib:/jobfs/local/dwf/apps/skylake/software/core/gcccore/6.4.0/lib/gcc/x86_64-pc-linux-gnu/6.4.0:/jobfs/local/dwf/apps/skylake/software/core/gcccore/6.4.0/lib64:/jobfs/local/dwf/apps/skylake/software/core/gcccore/6.4.0/lib:/jobfs/local/dwf/apps/skylake/software/core/binutils/2.30/lib:$LD_LIBRARY_PATH
+    
+    export IDL_DIR=/jobfs/local/dwf/apps/skylake/software/core/idl/8.4/idl
+    export IDL_PATH=/jobfs/local/dwf/apps/skylake/software/core/idl/8.4/idl
+    export HEADAS=/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/heasoft/6.24/x86_64-pc-linux-gnu-libc2.17
+    export PYTHONPATH=/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/mpi4py/3.0.0-python-2.7.14/lib/python2.7/site-packages:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/numpy/1.16.3-python-3.6.4/lib/python3.6/site-packages:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/astropy/3.1.2-python-3.6.4/lib/python3.6/site-packages
+
+else
+
+   #git
+    module load git/2.18.0
+
+    #IDL
+    module load idl/8.4
+
+    #Swarp
+    module load swarp/2.38.0
+
+    #SExtractor 2.19.5
+    module load sextractor/2.19.5
+
+    #HOTPANTS
+    module load hotpants/5.1.11
+
+    #Astrometry.net (imcopy, imarith, ...)
+    module load astrometry.net/0.74
+
+    #Eclipse
+    module load eclipse/5.0.0
+
+    #ds9
+    module load ds9/7.6
+
+    #Anaconda
+    module load anaconda2/5.1.0
+
+
+    #HEASoft
+    module load heasoft/6.24
+    . $HEADAS/headas-init.sh
+
+    #Anaconda3
+    module load anaconda3/5.1.0 
+
+
+    #mpi4py
+    module load mpi4py/3.0.0-python-2.7.14
+
+
+    #Python
+    module load numpy/1.16.3-python-3.6.4
+    module load astropy/3.1.2-python-3.6.4
+
+fi

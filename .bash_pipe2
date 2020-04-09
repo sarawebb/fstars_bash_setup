@@ -1,0 +1,65 @@
+################# Prepipe nopipeloop bash (added by Igor)
+
+##C-Shell Confiuration for DWF Pre-pipe
+module purge
+#ml gcc/7.3.0 openmpi/3.0.0 fftw/3.3.7 atlas/3.10.2-lapack-3.8.0 anaconda3/5.1.0 git/2.16.0 cfitsio/3.450 ccfits/2.5
+#ml python/2.7.14 astropy/2.0.3-python-2.7.14 numpy/1.14.1-python-2.7.14 scipy/1.0.0-python-2.7.14
+
+#Armin DECAM PIPELINE
+# alias defaultdecam="source /fred/oz100/pipes/arest/photpipe/config/DECAM/DEFAULT/DEFAULT_bash.sourceme"
+# alias pipe="source /fred/oz100/pipes/arest/photpipe/config/DECAM/DEFAULT/DEFAULT_bash.sourceme"
+alias defaultdecam="source /fred/oz100/pipes/arest/photpipe/config/DECAM/K2/K2.bash.sourceme"
+
+#JP2Fits Decompression Configuration
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/fred/oz100/dvohl/kerlumph/kerlumph_DECam_HSC/lib/Linux-x86-64-gcc
+#export PATH=$PATH:/fred/oz100/dvohl/kerlumph/kerlumph_DECam_HSC/bin/Linux-x86-64-gcc
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/fred/oz100/dvohl/kerlumph/kerlumph_DECam_HSC/lib/Linux-x86-64-gcc
+export PATH=${PATH}:/fred/oz100/dvohl/kerlumph/kerlumph_DECam_HSC/bin/Linux-x86-64-gcc
+
+alias f2j="f2j_DECam"
+alias j2f="j2f_DECam"
+
+#Purg Igor's default bash modules (since default shell is bash), load my nescessary ones
+#module load iraf gcc
+
+#Load python3
+# # export PATH /lustre/projects/p025_swin/fstars/anaconda3/bin:${PATH}
+# conda config --add channels http://ssb.stsci.edu/astroconda
+# conda create --prefix=/fred/oz100/conda/iraf27 python=2.7 iraf-all pyraf-all stsci
+#
+#source activate /fred/oz100/conda/iraf27_new
+
+#Enter Armin's Photpipe Environment
+#defaultdecam
+#source /fred/oz100/pipes/arest/photpipe/config/DECAM/K2/K2.bash.sourceme
+
+#Convenience Aliases
+#alias mate "rmate/mate"
+alias myq="showq -w user:fstars -n"
+#alias myiops "qstat -a | grep fstars | awk '{print $10}' | sort | uniq -c ; nc 192.168.55.11 8650 | egrep -A2500 'sstar01|sstar02|sstar10|sstar11[1-5]|sstar140|sstar150'  | grep$
+
+#export PROJ /projects/p025_swin/
+export PROJ=/fred/oz100/
+source ~/.aliases_bash
+
+#Mpy4py
+#Compiled locally
+export PYTHONPATH=$PYTHONPATH:/home/fstars/mpi4py_build/lib/python3.6/site-packages
+#export PYTHONPATH=$PYTHONPATH:/home/fstars/mpi4py_build/lib/python2.7/site-packages
+#SExtractor
+#module load sextractor/2.19.5
+
+export LD_LIBRARY_PATH=/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/scalapack/2.0.2-openblas-0.2.20/lib:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/fftw/3.3.7/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/openmpi/3.0.0/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/ccfits/2.5/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/atlas/3.10.2-lapack-3.8.0/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/cfitsio/3.450/lib:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/openblas/0.2.20/lib:/jobfs/local/dwf/apps/skylake/software/core/gcccore/6.4.0/lib/gcc/x86_64-pc-linux-gnu/6.4.0:/jobfs/local/dwf/apps/skylake/software/core/gcccore/6.4.0/lib64:/jobfs/local/dwf/apps/skylake/software/core/gcccore/6.4.0/lib:/jobfs/local/dwf/apps/skylake/software/core/git/2.16.0/lib64:/jobfs/local/dwf/apps/skylake/software/core/binutils/2.30/lib:$LD_LIBRARY_PATH
+
+export PATH=/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/sextractor/2.19.5/bin:/jobfs/local/dwf/apps/skylake/software/mpi/gcc/6.4.0/openmpi/3.0.0/fftw/3.3.7/bin:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/openmpi/3.0.0/bin:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/ccfits/2.5/bin:/jobfs/local/dwf/apps/skylake/software/compiler/gcc/6.4.0/openblas/0.2.20/bin:/jobfs/local/dwf/apps/skylake/software/core/gcccore/6.4.0/bin:/jobfs/local/dwf/apps/skylake/software/core/git/2.16.0/bin:/jobfs/local/dwf/apps/skylake/software/core/anaconda3/5.1.0:/jobfs/local/dwf/apps/skylake/software/core/anaconda3/5.1.0/bin:/jobfs/local/dwf/apps/skylake/software/core/binutils/2.30/bin:/opt/nvidia/latest/usr/bin:/apps/slurm/latest/sbin:/apps/slurm/latest/bin:$PATH
+
+export LD_LIBRARY_PATH=/fred/oz100/pipes/DECamCP/cp210_prereq/lib:$LD_LIBRARY_PATH
+
+alias testdir='cd /fred/oz100/fstars/DWF_Unpack_Test/push'
+alias z='exit'
+alias sa='source ~/.aliases'
+alias sc='source ~/.cshrc'
+alias va='view ~/.aliases'
+alias vc='view ~/.cshrc'
+alias z='exit'
+alias cf='cd /fred/oz100/pipes/arest/photpipe/tools/finder'

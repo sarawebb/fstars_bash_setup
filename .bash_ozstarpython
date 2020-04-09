@@ -1,0 +1,5 @@
+module load python/2.7.14
+module load astropy/2.0.3-python-2.7.14
+module load numpy/1.14.1-python-2.7.14
+module load scipy/1.0.0-python-2.7.14
+
